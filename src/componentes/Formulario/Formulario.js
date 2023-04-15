@@ -1,14 +1,16 @@
 import "./Formulario.css"
 import CampoTexto from "../CampoTexto"
+import ListaOpciones from "../ListaOpciones"
 
 const Formulario = () =>{
     return <section className="formulario">
         <form>
             <h2>Rellena el formulario para crear un colaborador</h2>
-            <CampoTexto />
-            <CampoTexto />
-            <CampoTexto />
-            <CampoTexto />
+            <CampoTexto titulo = "Nombre" placeholder="Ingresar nombre"/>
+            <CampoTexto titulo = "Puesto" placeholder="Ingresar puesto"/>
+            <CampoTexto titulo = "Foto" placeholder="Ingresar enlace de foto"/>
+            
+            <ListaOpciones/>
         </form>
     </section>
 }
