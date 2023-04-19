@@ -15,9 +15,10 @@ const Formulario = () =>{
     return <section className="formulario">
         <form onSubmit={manejarEnvio}>
             <h2>Rellena el formulario para crear un colaborador</h2>
-            <CampoTexto titulo = "Nombre" placeholder="Ingresar nombre"/>
-            <CampoTexto titulo = "Puesto" placeholder="Ingresar puesto"/>
-            <CampoTexto titulo = "Foto" placeholder="Ingresar enlace de foto"/>
+            {/* las 2 required dan el mismo resultado que es un true */}
+            <CampoTexto titulo = "Nombre" placeholder="Ingresar nombre" required={true}/>
+            <CampoTexto titulo = "Puesto" placeholder="Ingresar puesto" required/>
+            <CampoTexto titulo = "Foto" placeholder="Ingresar enlace de foto" required/>
             <ListaOpciones/>
             <Boton>Crear</Boton>
         </form>
