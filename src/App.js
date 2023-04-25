@@ -66,7 +66,7 @@ function App() {
       {/*<Header></Header>  forma 2 para que apareza la imagen */}
       <Header /> {/* forma 3 que utilizaremos */}
       {/* { mostrarFormulario ? <Formulario /> : <></> } Ternario */}
-      { mostrarFormulario && <Formulario /> }
+      { mostrarFormulario && <Formulario equipos={equipos.map((equipo) => equipo.titulo)}/> }
       
       <MiOrg cambiarMostrar = { cambiarMostrar }/>
 

@@ -7,15 +7,16 @@ const ListaOpciones = (props) => {
             return <option></option>
         })
     */ 
-    const equipos = [
-        "Programacion",
-        "Front End",
-        "Data Science",
-        "Devops",
-        "UX y Diseño",
-        "Movil",
-        "Innovacion y Gestion"
-    ]
+   //eliminamos el map para que solo haya 1 en todo el codigo y no tengamos que modificar en donde esten los demas arreglos y accedemos con props en la linea 30
+    // const equipos = [
+    //     "Programacion",
+    //     "Front End",
+    //     "Data Science",
+    //     "Devops",
+    //     "UX y Diseño",
+    //     "Movil",
+    //     "Innovacion y Gestion"
+    // ]
 
     const manejarCambio = (e) => {
         console.log("cambio", e.target.value)
@@ -26,7 +27,7 @@ const ListaOpciones = (props) => {
         <label>Equipos</label>
         <select value={props.valor} onChange={manejarCambio}>
             <option value="" disabled defaultValue="" hidden>Seleccionar equipo</option>
-            {equipos.map( (equipos, index) => <option key = {index} value={equipos}>{equipos}</option>
+            {props.equipos.map( (equipos, index) => <option key = {index} value={equipos}>{equipos}</option>
              )}
         </select>
     </div>
