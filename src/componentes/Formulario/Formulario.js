@@ -12,18 +12,20 @@ const Formulario = (props) =>{
     const [foto, actualizarFoto] = useState("")
     const [equipo, actualizarEquipo] = useState("")
 
+    const {registrarColaborador} = props
+
     //modelo SPA = Single Page Application; esto con la finalidad de no estar recargando la pagina cada vez que se crea un colaborador
     //en lugar de evento se puede utilizar event o e, son las mas utilizadas
     const manejarEnvio = (evento) =>{
         evento.preventDefault()//para que ya no recargue la pagina
-        console.log("Mnejar el envio")
+        console.log("Manejar envio")
         let datosAEnviar = {
             nombre,
             puesto,
             foto,
             equipo
         }
-        console.log(datosAEnviar)
+        registrarColaborador(datosAEnviar)
     }
 
     return <section className="formulario">

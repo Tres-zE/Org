@@ -4,10 +4,13 @@ import Header from './componentes/Header/header';
 import Formulario from './componentes/Formulario/Formulario';
 import MiOrg from './componentes/MiOrg';
 import Equipo from './componentes/Equipo';
+import Colaborador from './componentes/Colaborador';
+import { act } from '@testing-library/react';
 
 function App() {
  //para usar useState se necesita importar y si o si debe estar dentro de una funcion y al inicio
   const [mostrarFormulario, actualizarMostrar] = useState(false)
+  const [colaboradores, actualizarColaboradores] = useState([])
  //usaremos Ternario --> condicion ? se muestra : no se muestra .....(en mostrarFormulario) o
  //condicion && seMuestra 
 
@@ -15,6 +18,13 @@ function App() {
     actualizarMostrar(!mostrarFormulario)
   }
 
+  //Registrar colaborador
+  const registrarColaborador = (colaborador) => {
+    console.log("Nuevo colaborador ", colaborador)
+    //spread operator
+    //con los 3 puntitos copiamos un valor que ya esta
+    actualizarColaboradores([...colaboradores, colaborador])
+  }
   //arreglo de objetos equipos
   const equipos = [
     {
@@ -66,7 +76,12 @@ function App() {
       {/*<Header></Header>  forma 2 para que apareza la imagen */}
       <Header /> {/* forma 3 que utilizaremos */}
       {/* { mostrarFormulario ? <Formulario /> : <></> } Ternario */}
-      { mostrarFormulario && <Formulario equipos={equipos.map((equipo) => equipo.titulo)}/> }
+      { 
+        mostrarFormulario && <Formulario 
+        equipos={equipos.map((equipo) => equipo.titulo)}
+        registrarColaborador = {registrarColaborador}
+        /> 
+      }
       
       <MiOrg cambiarMostrar = { cambiarMostrar }/>
 
@@ -81,7 +96,11 @@ function App() {
 
         {
           //modo pro
-          equipos.map( (equipo) => <Equipo datos={equipo} key={equipo.titulo}/>
+          equipos.map( (equipo) => <Equipo 
+          datos={equipo} 
+          key={equipo.titulo}
+          colaboradores = {colaboradores}
+          />
           //cada vez que trabajemos con map, se le pone key para un identificador unico, una propiedad del objeto que es unica y no nos de errores
           
         )

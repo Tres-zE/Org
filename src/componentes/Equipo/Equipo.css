@@ -13,3 +13,9 @@
     display: inline-block; /*para que solo se muestre y ocupe debajo del texto*/
     padding-bottom: 9px;
 }
+
+.colaboradores{
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+}
