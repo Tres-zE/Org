@@ -6,6 +6,7 @@ import MiOrg from './componentes/MiOrg';
 import Equipo from './componentes/Equipo';
 import Colaborador from './componentes/Colaborador';
 import { act } from '@testing-library/react';
+import Footer from './componentes/Footer';
 
 function App() {
  //para usar useState se necesita importar y si o si debe estar dentro de una funcion y al inicio
@@ -95,16 +96,18 @@ function App() {
       } */}
 
         {
-          //modo pro
-          equipos.map( (equipo) => <Equipo 
-          datos={equipo} 
-          key={equipo.titulo}
-          colaboradores = {colaboradores}
-          />
-          //cada vez que trabajemos con map, se le pone key para un identificador unico, una propiedad del objeto que es unica y no nos de errores
-          
-        )
+            //modo pro
+            equipos.map( (equipo) => <Equipo 
+                datos={equipo} 
+                key={equipo.titulo}
+                colaboradores = {colaboradores.filter( colaborador => colaborador.equipo === equipo.titulo )}
+                />
+              //cada vez que trabajemos con map, se le pone key para un identificador unico, una propiedad del objeto que es unica y no nos de errores
+              
+            )
         }
+
+        <Footer/>
         
       
     </div>
