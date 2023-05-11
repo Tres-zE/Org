@@ -11,7 +11,38 @@ import Footer from './componentes/Footer';
 function App() {
  //para usar useState se necesita importar y si o si debe estar dentro de una funcion y al inicio
   const [mostrarFormulario, actualizarMostrar] = useState(false)
-  const [colaboradores, actualizarColaboradores] = useState([])
+  const [colaboradores, actualizarColaboradores] = useState([
+    {
+      equipo: "Front End",
+      foto: "https://github.com/harlandlohora.png",
+      nombre: "Harland Lohora",
+      puesto: "Instructor"
+    },
+    {
+      equipo: "Programacion",
+      foto: "https://github.com/genesysaluralatam.png",
+      nombre: "Genesys Rondón",
+      puesto: "Desarrolladora de Software e Instructora"
+    },
+    {
+      equipo: "UX y Diseño",
+      foto: "https://github.com/JeanmarieAluraLatam.png",
+      nombre: "Jeanmarie Quijada",
+      puesto: "Instructora en Alura Latam"
+    },
+    {
+      equipo: "Programacion",
+      foto: "https://github.com/christianpva.png",
+      nombre: "Cristian Velasco",
+      puesto: "Head de Alura e Instructor"
+    },
+    {
+      equipo: "Innovación y Gestión",
+      foto: "https://github.com/JoseDarioGonzalezCha.png",
+      nombre: "José Gonzalez",
+      puesto: "Dev FullStack"
+    }
+  ])
  //usaremos Ternario --> condicion ? se muestra : no se muestra .....(en mostrarFormulario) o
  //condicion && seMuestra 
 
@@ -26,6 +57,17 @@ function App() {
     //con los 3 puntitos copiamos un valor que ya esta
     actualizarColaboradores([...colaboradores, colaborador])
   }
+
+  //Eliminar colaborador
+  const eliminarColabarador = () => {
+    console.log("Eliminar colaborador")
+  }
+
+  //Cambiar color de equipo
+  const actualizarColor = (color, titulo) =>{
+    console.log("Actualizar: ", color, titulo)
+  }
+
   //arreglo de objetos equipos
   const equipos = [
     {
@@ -65,7 +107,7 @@ function App() {
     },
 
     {
-      titulo:"Innovacion y Gestion",
+      titulo:"Innovación y Gestión",
       colorPrimario:"#FF8A29",
       colorSecundario:"#FFEEDF"
     }
@@ -101,6 +143,8 @@ function App() {
                 datos={equipo} 
                 key={equipo.titulo}
                 colaboradores = {colaboradores.filter( colaborador => colaborador.equipo === equipo.titulo )}
+                eliminarColaborador = {eliminarColabarador}
+                actualizarColor = {actualizarColor}
                 />
               //cada vez que trabajemos con map, se le pone key para un identificador unico, una propiedad del objeto que es unica y no nos de errores
               

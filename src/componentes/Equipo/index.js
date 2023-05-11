@@ -5,13 +5,11 @@ const Equipo = (props) => { //props es un objeto, por lo tanto accederemos a sus
 
     //Destructuracion
     const {colorPrimario, colorSecundario, titulo} = props.datos
-    const {colaboradores} = props
+    const {colaboradores, eliminarColaborador, actualizarColor} = props
     
     const obj = {
         backgroundColor: colorSecundario
     }
-
-    console.log(colaboradores.length > 0)
     
 
     const estiloTitulo ={
@@ -21,6 +19,14 @@ const Equipo = (props) => { //props es un objeto, por lo tanto accederemos a sus
     return <>
         { colaboradores.length > 0 &&
             <section className="equipo" style={obj}>
+                <input 
+                    type="color"
+                    className="input-color"
+                    value={colorSecundario}
+                    onChange={(evento) =>{
+                        actualizarColor(evento.target.value, titulo)
+                    }}
+                />
                 <h3 style={estiloTitulo} >{titulo}</h3>
                 <div className="colaboradores">
                     {
@@ -28,6 +34,7 @@ const Equipo = (props) => { //props es un objeto, por lo tanto accederemos a sus
                         datos={colaborador} 
                         key={index}
                         colorPrimario={colorPrimario}
+                        eliminarColaborador={eliminarColaborador}
                         /> )
                     }
                 </div>
