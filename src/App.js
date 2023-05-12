@@ -5,8 +5,6 @@ import Header from './componentes/Header/header';
 import Formulario from './componentes/Formulario/Formulario';
 import MiOrg from './componentes/MiOrg';
 import Equipo from './componentes/Equipo';
-import Colaborador from './componentes/Colaborador';
-import { act } from '@testing-library/react';
 import Footer from './componentes/Footer';
 
 function App() {
